@@ -1,5 +1,13 @@
-export default interface IProducts {
-  id: number,
+export interface IProducts {
+  id?: number,
   name: string,
   amount: string,
+}
+
+export interface IUser {
+  id?: number,
+  username: string,
+  vocation: string,
+  level: number,
+  password?: string,
 }
