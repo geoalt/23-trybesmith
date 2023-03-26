@@ -4,10 +4,16 @@ export interface IProducts {
   amount: string,
 }
 
-export interface IUser {
+export interface IUsers {
   id?: number,
   username: string,
   vocation: string,
   level: number,
   password?: string,
+}
+
+export interface IOrders {
+  id: number,
+  userId: number,
+  productIds: number[],
 }

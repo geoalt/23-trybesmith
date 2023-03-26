@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import jwt, { JwtPayload, SignOptions } from 'jsonwebtoken';
-import { IUser } from '../interfaces';
+import { IUsers } from '../interfaces';
 
 dotenv.config();
 
@@ -12,7 +12,7 @@ const config: SignOptions = {
 };
 
 class Auth {
-  static generate(user: IUser): { token: string } | void {
+  static generate(user: IUsers): { token: string } | void {
     try {
       return { token: jwt.sign(user, SECRET, config) };
     } catch (error) {

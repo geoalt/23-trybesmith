@@ -1,5 +1,5 @@
 import Auth from '../auth/authorization';
-import { IUser } from '../interfaces';
+import { IUsers } from '../interfaces';
 import connection from '../models/connection';
 import UserModel from '../models/UserModel';
 
@@ -10,7 +10,7 @@ class UserService {
     this.model = new UserModel(connection);
   }
 
-  async insertOne(user: IUser) {
+  async insertOne(user: IUsers) {
     await this.model.insertOne(user);
     console.log('SERVICE', user);
     const { username, vocation, level } = user;

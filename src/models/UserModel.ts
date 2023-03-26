@@ -1,5 +1,5 @@
 import { Pool, ResultSetHeader } from 'mysql2/promise';
-import { IUser } from '../interfaces';
+import { IUsers } from '../interfaces';
 
 class UserModel {
   connection: Pool;
@@ -8,7 +8,7 @@ class UserModel {
     this.connection = connection;
   }
 
-  async insertOne(user: IUser): Promise<number> {
+  async insertOne(user: IUsers): Promise<number> {
     const query = `INSERT INTO Trybesmith.users 
      (username, vocation, level, password) 
      VALUES (?, ?, ?, ?)`;
