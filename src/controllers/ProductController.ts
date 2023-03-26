@@ -11,6 +11,11 @@ class ProductController {
   // Mesmo resultado que o código acima, porem encurtado
   // constructor(private service = new ProductService()) {}
 
+  async findAll(_req: Request, res: Response) {
+    const result = await this.service.findAll();
+    return res.status(result.status).json(result.payload);
+  }
+
   async insertOne(req: Request, res: Response) {
     const product = req.body;
     const result = await this.service.insertOne(product);

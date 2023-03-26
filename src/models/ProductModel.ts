@@ -8,12 +8,18 @@ class ProductsModel {
     this.connection = connection;
   }
 
+  async findAll(): Promise<IProducts[]> {
+    const query = 'SELECT * FROM Trybesmith.products';
+    const [result] = await this.connection
+      .execute<IProducts[] & RowDataPacket[]>(query);
+
+    return result;
+  }
+
   async findOne(id: number): Promise<IProducts> {
     const query = 'SELECT id, name, amount FROM Trybesmith.products WHERE id = ?';
     const [[result]] = await this.connection
       .execute<IProducts[] & RowDataPacket[]>(query, [id]);
-
-    console.log(result);
     
     return result;
   }

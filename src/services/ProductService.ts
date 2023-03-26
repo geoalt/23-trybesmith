@@ -9,12 +9,15 @@ class ProductService {
     this.model = new ProductModel(connection);
   }
 
+  async findAll() {
+    const result = await this.model.findAll();
+    return { status: 200, payload: result };
+  }
+
   async insertOne(product: IProducts) {
     const id = await this.model.insertOne(product);
-    console.log(id);
-
     const result = await this.model.findOne(id);
-    console.log(result);
+
     return { status: 201, payload: result };
   }
 }
