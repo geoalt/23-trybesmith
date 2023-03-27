@@ -15,5 +15,12 @@ export interface IUsers {
 export interface IOrders {
   id: number,
   userId: number,
-  productIds: number[],
+  productsIds: number[],
+}
+
+export interface IResult {
+  status: number;
+  payload: void | {
+    token: string;
+  };
 }

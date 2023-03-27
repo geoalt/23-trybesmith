@@ -11,10 +11,9 @@ class UserService {
   }
 
   async insertOne(user: IUsers) {
-    await this.model.insertOne(user);
-    console.log('SERVICE', user);
+    const id = await this.model.insertOne(user);
     const { username, vocation, level } = user;
-    const token = Auth.generate({ username, vocation, level });
+    const token = Auth.generate({ id, username, vocation, level });
 
     return { status: 201, payload: token };
   }

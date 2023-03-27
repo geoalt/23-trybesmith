@@ -4,7 +4,8 @@ import { IUsers } from '../interfaces';
 
 dotenv.config();
 
-const SECRET = process.env.JWT_SECRET || 'secret';
+// const SECRET = process.env.JWT_SECRET || 'secret';
+const SECRET = 'secret';
 
 const config: SignOptions = {
   expiresIn: '2d',
