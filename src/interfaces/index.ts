@@ -13,14 +13,23 @@ export interface IUsers {
 }
 
 export interface IOrders {
-  id: number,
+  id?: number,
   userId: number,
   productsIds: number[],
 }
 
 export interface IResult {
-  status: number;
+  status: number,
   payload: void | {
     token: string;
   };
+}
+
+export interface IAuth {
+  id: number,
+  username: string,
+  vocation: string,
+  level: number,
+  iat?: number,
+  exp?: number;
 }

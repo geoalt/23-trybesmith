@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { IUsers } from '../interfaces';
 import UserService from '../services/UserService';
 
 class UserController {
@@ -9,7 +10,8 @@ class UserController {
   }
 
   async insertOne(req: Request, res: Response) {
-    const user = req.body;
+    console.log(req.body);
+    const user: IUsers = req.body;
     const result = await this.service.insertOne(user);
     return res.status(result.status).json(result.payload);
   }

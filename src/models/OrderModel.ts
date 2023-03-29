@@ -1,4 +1,4 @@
-import { Pool, RowDataPacket } from 'mysql2/promise';
+import { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import { IOrders } from '../interfaces';
 
 class OrderModel {
@@ -6,6 +6,18 @@ class OrderModel {
 
   constructor(connection: Pool) {
     this.connection = connection;
+  }
+
+  async insertOne(id: number) {
+    const query = `
+      INSERT INTO
+        Trybesmith.orders (user_id)
+        VALUES (?)
+    `;
+    const [result] = await this.connection
+      .execute<ResultSetHeader>(query, [id]);
+
+    return result.insertId;
   }
 
   async findAll(): Promise<IOrders[]> {

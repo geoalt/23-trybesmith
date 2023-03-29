@@ -31,6 +31,16 @@ class ProductsModel {
 
     return result.insertId;
   }
+
+  async update(id: number, orderId: number) {
+    const query = `
+      UPDATE Trybesmith.products
+      SET order_id = ?
+      WHERE id = (?)
+    `;
+
+    await this.connection.execute(query, [orderId, id]);
+  }
 }
 
 export = ProductsModel;
