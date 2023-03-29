@@ -10,7 +10,6 @@ class UserController {
   }
 
   async insertOne(req: Request, res: Response) {
-    console.log(req.body);
     const user: IUsers = req.body;
     const result = await this.service.insertOne(user);
     return res.status(result.status).json(result.payload);

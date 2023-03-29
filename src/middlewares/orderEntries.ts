@@ -8,7 +8,6 @@ const validadeOrderEntries = (req: Request, res: Response, next: NextFunction) =
   );
 
   if (error) {
-    console.log(error.message);
     switch (error.message) {
       case '"productsIds" must be an array':
         return res.status(422).json({ message: error.message });

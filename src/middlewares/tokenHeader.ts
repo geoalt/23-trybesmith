@@ -10,7 +10,6 @@ const validateToken = (req: Request, res: Response, next: NextFunction) => {
 
   try {
     req.body.userData = Auth.authenticate(token);
-    console.log(req.body.userData);
     return next();
   } catch (error) {
     return res.status(401).json({ message: 'Invalid token' });
